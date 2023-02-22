@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>ChatgptPlugin</id>
+    <name>ChatgptPlugin</name>
+    <vendor email="l695510719@gmail.com" url="https://github.com/dayuange123">LZY</vendor>
+
+    <description>
+        <![CDATA[
+        The chatgpt plugin for the compiler.<br>
+        代码提问，一键生成结果<br>
+    ]]>
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="com.lzy.component.ChatgptSettingsConfiguration">
+
+        </applicationConfigurable>
+        <applicationService serviceImplementation="com.lzy.component.ChatgptSettings"/>
+
+        <intentionAction>
+            <className>com.lzy.ChatgptMain</className>
+        </intentionAction>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+
+    </actions>
+
+    <change-notes><![CDATA[
+        0.0.1: <br>
+        - feat: 支持chatgpt 文本搜索<br>
+      ]]></change-notes>
+</idea-plugin>

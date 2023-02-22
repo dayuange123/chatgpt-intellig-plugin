@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id "org.jetbrains.intellij" version "0.6.5"
+    id 'org.jetbrains.changelog' version '1.1.2'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+
+}
+apply plugin: 'org.jetbrains.changelog'
+
+group 'com.lzy'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation("com.unfbx:chatgpt-java:1.0.1"){
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+
+    }
+
+
+}
+
+intellij {
+    version = '2020.1'
+    updateSinceUntilBuild = false
+    plugins = ['java', 'properties']
+}
+
+test {
+    useJUnitPlatform()
+}
+repositories {
+    gradlePluginPortal()
+}
